@@ -30,3 +30,8 @@ li {
   line-height: 19.2px;
   text-align: left;
 }
+
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
