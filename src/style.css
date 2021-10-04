@@ -35,3 +35,7 @@ li {
   max-width: 600px;
   margin: 30px auto;
 }
+
+footer {
+  text-align: center;
+}
