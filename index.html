@@ -2,18 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="src/style.css" />
-    <title>Weather app</title>
+    <title>Weather App</title>
   </head>
   <body>
     <div class="container">
@@ -46,18 +46,22 @@
               <li id="description"></li>
             </ul>
           </div>
-
           <div class="row">
             <div class="col-6">
               <div class="clearfix weather-temperature">
-                <img src="" alt="Clear" id="icon" class="float-left" />
+                <img
+                  src="icons/cloudsun.svg"
+                  alt="Clear"
+                  id="icon"
+                  class="float-left"
+                  width="100px"
+                />
                 <div class="float-left">
                   <strong id="temperature"></strong
                   ><span class="units"> °C</span>
                 </div>
               </div>
             </div>
-
             <div class="col-6">
               <ul>
                 <li>Humidity: <span id="humidity"></span>%</li>
@@ -66,27 +70,17 @@
             </div>
           </div>
           <div class="weather-forecast" id="forecast"></div>
-
-          <div class="col-6">
-            <ul>
-              <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind: <span id="wind"></span> m/h</li>
-            </ul>
-          </div>
         </div>
-        <div class="weather-forecast" id="forecast"></div>
+        <footer>
+          <small>
+            <a href="https://github.com/elic4vet/weather-app" target="blank">
+              Open-source code</a
+            >
+            by Elisabeth Erkekoglou
+          </small>
+        </footer>
       </div>
     </div>
-
-    <footer>
-      <small>
-        <a href="https://github.com/elic4vet/weather-app" target="blank">
-          Open-source code</a
-        >
-        by Elisabeth Erkekoglou
-      </small>
-    </footer>
-
     <script src="src/app.js"></script>
   </body>
 </html>
