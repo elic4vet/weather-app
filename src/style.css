@@ -29,6 +29,7 @@ li {
   height: 18.8889px;
   line-height: 19.2px;
   text-align: left;
+  text-transform: capitalize;
 }
 
 .weather-app-wrapper {
