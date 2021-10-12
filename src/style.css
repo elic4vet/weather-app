@@ -30,6 +30,15 @@
 .wearther-forecast-date {
   font-size: 16px;
   color: #bababa;
+  opacity: 0.5;
+}
+
+.wearther-forecast-temperature-min {
+  opacity: 0.5;
+}
+.wearther-forecast-temperatures {
+  font-size: 13px;
+  color: #bababa;
 }
 
 h1 {
