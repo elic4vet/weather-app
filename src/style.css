@@ -22,6 +22,16 @@
   text-decoration: none;
 }
 
+.wearther-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.wearther-forecast-date {
+  font-size: 16px;
+  color: #bababa;
+}
+
 h1 {
   color: #878787;
   font-size: 24px;
