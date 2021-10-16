@@ -107,6 +107,11 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+
+let dateElement = document.querySelector("#date");
+let currentTime = new Date();
+dateElement.innerHTML = formatDate(currentTime);
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
