@@ -110,3 +110,7 @@ footer {
 .search {
   cursor: pointer;
 }
+
+.hide-div {
+  display: none;
+}
