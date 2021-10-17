@@ -84,6 +84,7 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
+
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -93,7 +94,20 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getForecast(response.data.coord);
+  getForecast(response.data.coord), soundPlay();
+}
+
+function soundPlay(response) {
+  rainSound = document.getElementById("#player-src1");
+  birdsSound = document.getElementById("#player-src2");
+  audioPlayer = document.getElementById("#player");
+  descriptionElement = response.data.weather[0].description;
+
+  if (response.data.weather[0].description == "light rain") {
+    soundPlay("#player-src1");
+  } else {
+    soundPlay("#player-src2");
+  }
 }
 
 function search(city) {
@@ -114,19 +128,5 @@ dateElement.innerHTML = formatDate(currentTime);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let audio1 = new Audio("/sounds/rain.mp3");
-let audio2 = new Audio("/sounds/birds.mp3");
-let apiKey = "c1453afb57d8b9379877dfdab6cd3483";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-function playSound() {
-  if (response.data.weather[0].description == "light rain") {
-    audio1.play();
-  } else {
-    audio2.play();
-  }
-  axios.get(apiUrl).then(playSound);
-}
 
 search("New York");
