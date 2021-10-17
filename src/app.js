@@ -115,4 +115,18 @@ dateElement.innerHTML = formatDate(currentTime);
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+let audio1 = new Audio("/sounds/rain.mp3");
+let audio2 = new Audio("/sounds/birds.mp3");
+let apiKey = "c1453afb57d8b9379877dfdab6cd3483";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+function playSound() {
+  if (response.data.weather[0].description == "light rain") {
+    audio1.play();
+  } else {
+    audio2.play();
+  }
+  axios.get(apiUrl).then(playSound);
+}
+
 search("New York");
