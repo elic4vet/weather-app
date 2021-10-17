@@ -42,6 +42,15 @@
                       value="Search"
                       class="btn btn-primary w-100"
                     />
+
+                    <div class="col-1">
+                      <br />
+                      <img
+                        src="icons/placeholder.png"
+                        id="current-location-button"
+                        width="40px"
+                      />
+                    </div>
                   </div>
                 </div>
               </form>
@@ -78,10 +87,18 @@
                       <span class="weather-forecast-temperature-min">
                         12°
                       </span>
-                      <div class="weather-sounds" id="player">
-                        <audio preload="auto" controls="controls">
-                          <source src="/sounds/rain.mp3" type="audio/mpeg" />
-                          <source src="/sounds/birds.mp3" type="audio/mpeg" />
+                      <div class="hide-div" id="player-wrap">
+                        <audio controls id="player" style="display: none">
+                          <source
+                            src="/sounds/rain.mp3"
+                            type="audio/mpeg"
+                            id="player-src1"
+                          />
+                          <source
+                            src="/sounds/birds.mp3"
+                            type="audio/mpeg"
+                            id="player-src2"
+                          />
                         </audio>
                       </div>
                     </div>
