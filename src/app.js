@@ -83,8 +83,8 @@ function displayTemperature(response) {
   celciusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
 
+  descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -94,20 +94,7 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getForecast(response.data.coord), soundPlay();
-}
-
-function soundPlay(response) {
-  rainSound = document.getElementById("#player-src1");
-  birdsSound = document.getElementById("#player-src2");
-  audioPlayer = document.getElementById("#player");
-  descriptionElement = response.data.weather[0].description;
-
-  if (response.data.weather[0].description == "light rain") {
-    soundPlay("#player-src1");
-  } else {
-    soundPlay("#player-src2");
-  }
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -122,11 +109,46 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function searchLocation(position) {
+  let apiKey = "c1453afb57d8b9379877dfdab6cd3483";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function playSound() {
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  if (description == `light rain`) {
+    playrainSound();
+  } else {
+    playbirdsSound();
+  }
+}
+
+function playrainSound() {
+  let rainsound = new Audio("/sounds/rain.mp3");
+  rainsound.play();
+}
+
+function playbirdsSound() {
+  let birdsound = new Audio("/sounds/birds.mp3");
+  birdsound.play();
+}
+
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("New York");
